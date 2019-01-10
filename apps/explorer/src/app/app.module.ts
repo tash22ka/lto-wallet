@@ -10,6 +10,8 @@ import { SharedModule } from './shared';
 import { LTO_PUBLIC_API } from '@legalthings-one/platform';
 import { AMOUNT_DIVIDER } from '@legalthings-one/component-kit';
 
+import { environment } from '../environments/environment';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -22,8 +24,7 @@ import { AMOUNT_DIVIDER } from '@legalthings-one/component-kit';
   providers: [
     {
       provide: LTO_PUBLIC_API,
-      // useValue: 'https://nodes.wavesnodes.com/'
-      useValue: 'https://testnet.legalthings.one/'
+      useValue: environment.lto_api_url
     },
     {
       provide: AMOUNT_DIVIDER,
