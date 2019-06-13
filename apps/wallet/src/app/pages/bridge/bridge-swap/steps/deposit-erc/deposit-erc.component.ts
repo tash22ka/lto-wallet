@@ -76,6 +76,14 @@ export class DepositErcComponent implements OnInit {
   constructor(private _bridge: BridgeService, private _wallet: WalletService) { }
 
   ngOnInit() {
+    switch (this.swapType) {
+      case SwapType.ERC20_BINANCE:
+        this.shouldShowCaptcha = false;
+        break;
+      default:
+        this.shouldShowCaptcha = true;
+    }
+
     this.addressPlaceholder = this.swapType === SwapType.ERC20_BINANCE ? 'BINANCE' : 'LTO20';
     const addressValidators: ValidatorFn[] = [Validators.required];
 
